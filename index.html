@@ -47,7 +47,7 @@
 
           <div class="hero-actions">
             <a href="#contact" class="btn btn-primary">Custom Order</a>
-            <a href="#featured" class="btn btn-secondary">View Featured Work</a>
+            <a href="#pricing" class="btn btn-secondary">See Pricing</a>
           </div>
         </div>
 
@@ -126,10 +126,10 @@
     <section class="section pricing-section" id="pricing">
       <div class="container">
         <div class="section-heading">
-          <p class="section-kicker">STARTING PRICING</p>
-          <h2>Simple starting prices for custom orders</h2>
+          <p class="section-kicker">PRICING & ORDER INFO</p>
+          <h2>Simple pricing for banners. Custom quotes for sports balls.</h2>
           <p>
-            Final pricing can vary based on size, quantity, detail, and design complexity.
+            Local pickup is always available. Shipping is available for a flat $20 on banner orders.
           </p>
         </div>
 
@@ -141,24 +141,27 @@
               <li><span>5x3 ft</span><strong>$45</strong></li>
               <li><span>6x3 ft</span><strong>$55</strong></li>
             </ul>
-          </article>
-
-          <article class="pricing-card">
-            <h3>Custom Sports Balls</h3>
-            <ul class="pricing-list">
-              <li><span>Starting at</span><strong>$35</strong></li>
-            </ul>
             <p class="pricing-note">
-              Prices may vary based on ball size and quantity.
+              Banner orders can be paid in full after submitting your order details.
             </p>
           </article>
 
           <article class="pricing-card">
-            <h3>Good to Know</h3>
+            <h3>Shipping & Pickup</h3>
             <ul class="pricing-bullets">
+              <li>Local pickup is always available</li>
+              <li>Shipping is available for $20</li>
+              <li>Choose your delivery method in the order form</li>
+            </ul>
+          </article>
+
+          <article class="pricing-card">
+            <h3>Sports Balls & Custom Items</h3>
+            <ul class="pricing-bullets">
+              <li>Sports balls start at $35</li>
+              <li>Final pricing may vary by size, quantity, and detail</li>
               <li>Bulk discounts available for larger quantities</li>
-              <li>Perfect for team gifts, banquets, coaches, seniors, and events</li>
-              <li>Fully custom pieces are quote based</li>
+              <li>These items are quoted after form submission</li>
             </ul>
           </article>
         </div>
@@ -233,33 +236,36 @@
           <p class="section-kicker">LET'S CREATE SOMETHING</p>
           <h2>Start your custom order</h2>
           <p>
-            Fill out the details below and Vicki will be in touch about your design.
+            Fill out the details below and Vicki will be in touch. Banner orders will be directed
+            to checkout after submission. Sports balls and other variable-cost items will be reviewed and quoted.
           </p>
 
           <div class="contact-details">
             <p><strong>Email:</strong> <a href="mailto:vecorrente@gmail.com">vecorrente@gmail.com</a></p>
             <p><strong>Instagram:</strong> <a href="https://instagram.com/hometownbannerco" target="_blank" rel="noopener noreferrer">@hometownbannerco</a></p>
+            <p><strong>Pickup:</strong> Local pickup available</p>
+            <p><strong>Shipping:</strong> Flat $20 for banner orders</p>
           </div>
 
           <div class="deposit-note">
-            <h3>Ready to lock in your order?</h3>
+            <h3>How payment works</h3>
             <p>
-              Deposits can be collected through Venmo after your request is reviewed and confirmed.
+              <strong>Banners:</strong> submit your order details, then checkout based on your selected size and delivery method.
             </p>
-            <p class="deposit-placeholder">
-              Venmo deposit info can be added here later.
+            <p>
+              <strong>Sports balls / custom items:</strong> submit your request and Vicki will follow up with pricing.
             </p>
           </div>
         </div>
 
-      <form
-  class="contact-form"
-  name="custom-order"
-  method="POST"
-  action="/thanks.html"
-  data-netlify="true"
-  netlify-honeypot="bot-field"
->
+        <form
+          class="contact-form"
+          id="custom-order-form"
+          name="custom-order"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+        >
           <input type="hidden" name="form-name" value="custom-order" />
           <p class="hidden-field">
             <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
@@ -280,12 +286,12 @@
           <div class="form-grid">
             <label>
               What are you ordering?
-              <select name="product_type" required>
+              <select name="product_type" id="product_type" required>
                 <option value="">Select one</option>
-                <option>Banner</option>
-                <option>Basketball</option>
-                <option>Football</option>
-                <option>Other custom piece</option>
+                <option value="Banner">Banner</option>
+                <option value="Basketball">Basketball</option>
+                <option value="Football">Football</option>
+                <option value="Other custom piece">Other custom piece</option>
               </select>
             </label>
 
@@ -306,38 +312,36 @@
           <div class="form-grid">
             <label>
               Banner size
-              <select name="banner_size">
+              <select name="banner_size" id="banner_size">
                 <option value="">Select if banner</option>
-                <option>4x3 ft</option>
-                <option>5x3 ft</option>
-                <option>6x3 ft</option>
-                <option>Not sure yet</option>
-                <option>Not a banner</option>
+                <option value="4x3 ft">4x3 ft</option>
+                <option value="5x3 ft">5x3 ft</option>
+                <option value="6x3 ft">6x3 ft</option>
+                <option value="Not sure yet">Not sure yet</option>
+                <option value="Not a banner">Not a banner</option>
               </select>
             </label>
 
             <label>
-              Quantity
-              <input type="text" name="quantity" placeholder="Example: 1 or 10" />
+              Delivery method
+              <select name="delivery_method" id="delivery_method">
+                <option value="">Select one</option>
+                <option value="Local pickup">Local pickup</option>
+                <option value="Shipping">Shipping (+$20)</option>
+                <option value="Not sure yet">Not sure yet</option>
+              </select>
             </label>
           </div>
 
           <div class="form-grid">
             <label>
-              Date needed
-              <input type="date" name="date_needed" />
+              Quantity
+              <input type="text" name="quantity" placeholder="Example: 1 or 10" />
             </label>
 
             <label>
-              Budget range
-              <select name="budget_range">
-                <option value="">Select one</option>
-                <option>Under $50</option>
-                <option>$50–$100</option>
-                <option>$100–$150</option>
-                <option>$150+</option>
-                <option>Not sure yet</option>
-              </select>
+              Date needed
+              <input type="date" name="date_needed" />
             </label>
           </div>
 
@@ -369,7 +373,7 @@
             ></textarea>
           </label>
 
-          <button type="submit" class="btn btn-primary submit-btn">Send Order Request</button>
+          <button type="submit" class="btn btn-primary submit-btn">Submit Order Request</button>
         </form>
       </div>
     </section>
@@ -408,5 +412,88 @@
       <p>© 2026 Hometown Banner Co. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    const STRIPE_LINKS = {
+      pickup: {
+        "4x3 ft": "PASTE_4X3_PICKUP_STRIPE_LINK_HERE",
+        "5x3 ft": "PASTE_5X3_PICKUP_STRIPE_LINK_HERE",
+        "6x3 ft": "PASTE_6X3_PICKUP_STRIPE_LINK_HERE"
+      },
+      shipping: {
+        "4x3 ft": "PASTE_4X3_SHIPPING_STRIPE_LINK_HERE",
+        "5x3 ft": "PASTE_5X3_SHIPPING_STRIPE_LINK_HERE",
+        "6x3 ft": "PASTE_6X3_SHIPPING_STRIPE_LINK_HERE"
+      }
+    };
+
+    const form = document.getElementById("custom-order-form");
+
+    function encodeFormData(data) {
+      return new URLSearchParams(data).toString();
+    }
+
+    function getBannerRedirectUrl(size, deliveryMethod) {
+      if (deliveryMethod === "Local pickup") {
+        return STRIPE_LINKS.pickup[size] || "";
+      }
+
+      if (deliveryMethod === "Shipping") {
+        return STRIPE_LINKS.shipping[size] || "";
+      }
+
+      return "";
+    }
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const formData = new FormData(form);
+      const productType = formData.get("product_type");
+      const bannerSize = formData.get("banner_size");
+      const deliveryMethod = formData.get("delivery_method");
+
+      if (productType === "Banner") {
+        if (!bannerSize || bannerSize === "Not sure yet" || bannerSize === "Not a banner") {
+          alert("Please select a banner size before continuing to checkout.");
+          return;
+        }
+
+        if (!deliveryMethod || deliveryMethod === "Not sure yet") {
+          alert("Please select local pickup or shipping before continuing to checkout.");
+          return;
+        }
+      }
+
+      try {
+        const response = await fetch("/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          body: encodeFormData(formData)
+        });
+
+        if (!response.ok) {
+          throw new Error("Form submission failed.");
+        }
+
+        if (productType === "Banner") {
+          const redirectUrl = getBannerRedirectUrl(bannerSize, deliveryMethod);
+
+          if (!redirectUrl || redirectUrl.includes("PASTE_")) {
+            alert("Your Stripe payment link for this banner option has not been added yet.");
+            return;
+          }
+
+          window.location.href = redirectUrl;
+        } else {
+          window.location.href = "/thanks.html";
+        }
+      } catch (error) {
+        alert("Something went wrong submitting the form. Please try again.");
+      }
+    });
+  </script>
 </body>
 </html>
