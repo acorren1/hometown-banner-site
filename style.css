@@ -526,3 +526,49 @@ a {
     flex-direction: column;
   }
 }
+
+/* =========================
+   FINAL POLISH OVERRIDES
+========================= */
+
+.hero h1 {
+  font-size: clamp(2.5rem, 4.5vw, 4.2rem);
+  max-width: 8.5ch;
+  line-height: 1.05;
+}
+
+.section {
+  padding: 5.5rem 0;
+}
+
+.gallery-grid {
+  gap: 1.5rem;
+}
+
+.gallery-card {
+  min-height: 300px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.sports-card {
+  min-height: 380px;
+  border-radius: 20px;
+}
+
+.instagram-follow-card {
+  padding: 2.75rem;
+}
+
+.cta-band-inner {
+  padding: 3rem;
+}
+
+.image-hover {
+  transition: transform 0.4s ease;
+}
+
+.image-hover-wrap:hover .image-hover {
+  transform: scale(1.04);
+}
