@@ -1,0 +1,81 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #333;
+}
+
+.hero {
+  height: 80vh;
+  background: url('https://images.unsplash.com/photo-1521335629791-ce4aec67dd47') center/cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  background: rgba(255,255,255,0.8);
+  padding: 40px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #7daea3;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.gallery {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+.card {
+  height: 200px;
+  background: #eee;
+  border-radius: 10px;
+}
+
+.cta {
+  padding: 60px;
+  text-align: center;
+  background: #f7f7f7;
+}
+
+.about {
+  padding: 60px;
+  text-align: center;
+}
+
+.contact {
+  padding: 60px;
+  background: #fafafa;
+  text-align: center;
+}
+
+input, textarea {
+  display: block;
+  width: 80%;
+  max-width: 400px;
+  margin: 10px auto;
+  padding: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #7daea3;
+  color: white;
+  border: none;
+}

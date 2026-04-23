@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hometown Banner Co.</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="hero">
+  <div class="overlay">
+    <h1>Hometown Banner Co.</h1>
+    <p>Hand-painted banners for life's most special moments</p>
+    <a href="#contact" class="btn">Start a Custom Order</a>
+  </div>
+</header>
+
+<section class="gallery">
+  <h2>Featured Creations</h2>
+  <div class="grid">
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+    <div class="card"></div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>Have something special in mind?</h2>
+  <a href="#contact" class="btn">Start Your Custom Banner</a>
+</section>
+
+<section class="about">
+  <h2>Meet the Artist</h2>
+  <p>Hi, I’m Vicki 👋 I create hand-painted banners designed to make your moments unforgettable.</p>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Start a Custom Order</h2>
+  <form name="contact" method="POST" data-netlify="true">
+    <input type="text" name="name" placeholder="Your Name" required />
+    <input type="email" name="email" placeholder="Your Email" required />
+    <textarea name="message" placeholder="What are you looking for?" required></textarea>
+    <button type="submit">Send Request</button>
+  </form>
+</section>
+
+</body>
+</html>
