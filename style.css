@@ -711,3 +711,92 @@ img {
 h2 {
   letter-spacing: -0.02em;
 }
+
+/* =========================
+   FIX HERO + FEATURED
+========================= */
+
+/* HERO: wider, less tall */
+.hero-grid {
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 4.2vw, 4.6rem);
+  line-height: 1.04;
+  max-width: 11ch;
+}
+
+.hero-text {
+  max-width: 34rem;
+}
+
+.hero-copy {
+  max-width: 560px;
+}
+
+/* FEATURED: reset weird editorial overrides */
+.gallery-grid {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.gallery-card,
+.gallery-card:nth-child(4),
+.gallery-card:nth-child(5),
+.gallery-card:nth-child(6) {
+  min-height: 280px;
+}
+
+.gallery-card:nth-child(6) {
+  grid-column: auto;
+}
+
+.gallery-card:nth-child(1),
+.gallery-card:nth-child(2),
+.gallery-card:nth-child(3),
+.gallery-card:nth-child(4),
+.gallery-card:nth-child(5),
+.gallery-card:nth-child(6) {
+  grid-column: auto;
+}
+
+.gallery-card {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.03);
+}
+
+/* Slightly shorter Ellie card feel without breaking layout */
+.gallery-card:last-child img {
+  object-position: center;
+}
+
+/* Mobile safety */
+@media (max-width: 980px) {
+  .hero-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy {
+    max-width: 100%;
+  }
+
+  .gallery-card:nth-child(6) {
+    grid-column: auto;
+  }
+}
