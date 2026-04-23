@@ -572,3 +572,142 @@ a {
 .image-hover-wrap:hover .image-hover {
   transform: scale(1.04);
 }
+
+/* =========================
+   FINAL VISUAL POLISH
+========================= */
+
+/* HERO TIGHTENING */
+.hero h1 {
+  font-size: clamp(2.4rem, 4.2vw, 4rem);
+  line-height: 1.02;
+  max-width: 7.5ch;
+}
+
+.hero p {
+  max-width: 480px;
+  margin-top: 1rem;
+}
+
+/* SECTION SPACING CONSISTENCY */
+.section {
+  padding: 5rem 0;
+}
+
+/* =========================
+   FEATURED GRID UPGRADE
+========================= */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+}
+
+/* Make layout feel more editorial */
+.gallery-card:nth-child(1) {
+  grid-column: span 1;
+}
+
+.gallery-card:nth-child(2) {
+  grid-column: span 1;
+}
+
+.gallery-card:nth-child(3) {
+  grid-column: span 1;
+}
+
+/* Make ONE card slightly bigger for visual interest */
+.gallery-card:nth-child(6) {
+  grid-column: span 2;
+}
+
+/* Image styling */
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Slight randomness in height */
+.gallery-card {
+  min-height: 260px;
+}
+
+.gallery-card:nth-child(4),
+.gallery-card:nth-child(5) {
+  min-height: 300px;
+}
+
+/* =========================
+   HOVER EFFECT (SUBTLE)
+========================= */
+
+.gallery-card {
+  overflow: hidden;
+}
+
+.gallery-card img {
+  transition: transform 0.45s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.045);
+}
+
+/* =========================
+   SPORTS GRID POLISH
+========================= */
+
+.sports-grid {
+  gap: 1.75rem;
+}
+
+.sports-card img {
+  transition: transform 0.45s ease;
+}
+
+.sports-card:hover img {
+  transform: scale(1.04);
+}
+
+/* =========================
+   INSTAGRAM SECTION IMPROVEMENT
+========================= */
+
+.instagram-follow-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 3rem;
+}
+
+/* Add subtle background texture feel */
+.instagram-follow-card {
+  background: linear-gradient(
+    135deg,
+    #f6f3ef 0%,
+    #f2eee9 100%
+  );
+}
+
+/* =========================
+   CTA BAND CLEANUP
+========================= */
+
+.cta-band-inner {
+  padding: 2.75rem 3rem;
+}
+
+/* =========================
+   GLOBAL POLISH
+========================= */
+
+img {
+  border-radius: 18px;
+}
+
+h2 {
+  letter-spacing: -0.02em;
+}
