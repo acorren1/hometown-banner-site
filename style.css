@@ -2,17 +2,13 @@
   --bg: #f7f2eb;
   --bg-soft: #fbf8f4;
   --panel: #ffffff;
-  --alt: #edf5f8;
   --accent-soft: #e6f4fa;
   --text: #24303a;
   --muted: #6e7781;
   --line: #e6ddd3;
-  --blue: #a8d5e6;
   --blue-deep: #7fb9cf;
-  --tan: #e7d7c8;
   --shadow: 0 18px 45px rgba(36, 48, 58, 0.08);
   --radius: 24px;
-  --radius-sm: 16px;
   --container: 1180px;
 }
 
@@ -99,12 +95,12 @@ a {
 }
 
 .hero {
-  padding: 5.5rem 0 4.5rem;
+  padding: 5rem 0 4.75rem;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.05fr 1fr;
+  grid-template-columns: 1.05fr 0.95fr;
   gap: 3rem;
   align-items: center;
 }
@@ -128,14 +124,14 @@ a {
   margin: 0;
   font-family: "Cormorant Garamond", serif;
   font-weight: 700;
-  line-height: 0.95;
+  line-height: 0.97;
   letter-spacing: -0.02em;
   color: var(--text);
 }
 
 .hero h1 {
-  font-size: clamp(3rem, 6vw, 5.3rem);
-  max-width: 11ch;
+  font-size: clamp(2.7rem, 5vw, 4.75rem);
+  max-width: 9.5ch;
 }
 
 .hero-text,
@@ -150,15 +146,15 @@ a {
 }
 
 .hero-text {
-  max-width: 36rem;
-  margin: 1.25rem 0 0;
+  max-width: 34rem;
+  margin: 1.15rem 0 0;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.9rem;
-  margin-top: 1.8rem;
+  margin-top: 1.7rem;
 }
 
 .btn {
@@ -201,8 +197,8 @@ a {
 .about-image-card,
 .gallery-card,
 .sports-card,
-.instagram-card,
-.contact-form {
+.contact-form,
+.instagram-follow-card {
   background: var(--panel);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -210,12 +206,12 @@ a {
 }
 
 .hero-image-card {
-  transform: rotate(-1.5deg);
+  transform: rotate(-1.2deg);
 }
 
 .hero-image {
   width: 100%;
-  aspect-ratio: 4 / 4.35;
+  aspect-ratio: 4 / 4.2;
   object-fit: cover;
 }
 
@@ -230,7 +226,7 @@ a {
 }
 
 .section-heading h2 {
-  font-size: clamp(2.2rem, 4vw, 3.6rem);
+  font-size: clamp(2.15rem, 4vw, 3.45rem);
   margin-bottom: 0.75rem;
 }
 
@@ -238,40 +234,17 @@ a {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.15rem;
-  align-items: start;
 }
 
 .gallery-card {
-  min-height: 260px;
-}
-
-.gallery-card-sm {
-  min-height: 265px;
-}
-
-.gallery-card-md {
-  grid-column: span 2;
-  min-height: 310px;
+  min-height: 320px;
 }
 
 .gallery-card img,
-.sports-card img,
-.instagram-card img {
+.sports-card img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.gallery-card:nth-child(2) {
-  transform: translateY(18px);
-}
-
-.gallery-card:nth-child(4) {
-  transform: translateY(10px);
-}
-
-.gallery-card:nth-child(6) {
-  transform: translateY(12px);
 }
 
 .alt-section {
@@ -310,8 +283,7 @@ a {
 
 .about-grid,
 .contact-grid,
-.footer-grid,
-.instagram-grid {
+.footer-grid {
   display: grid;
   gap: 2rem;
 }
@@ -348,26 +320,26 @@ a {
 }
 
 .instagram-section {
-  background: linear-gradient(180deg, #fbf8f4 0%, #f4ede5 100%);
+  padding-top: 3rem;
+  padding-bottom: 1rem;
 }
 
-.instagram-grid {
-  grid-template-columns: 0.9fr 1.1fr;
+.instagram-follow-card {
+  padding: 2rem 2.25rem;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  background: linear-gradient(180deg, #fbf8f4 0%, #f4ede5 100%);
+  border: 1px solid var(--line);
 }
 
-.instagram-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+.instagram-copy {
+  max-width: 650px;
 }
 
-.instagram-card {
-  min-height: 280px;
-}
-
-.instagram-card:nth-child(2) {
-  transform: translateY(18px);
+.instagram-actions {
+  flex-shrink: 0;
 }
 
 .contact-section {
@@ -495,25 +467,12 @@ a {
   .contact-grid,
   .footer-grid,
   .sports-grid,
-  .instagram-grid,
-  .instagram-cards,
   .gallery-grid {
     grid-template-columns: 1fr;
   }
 
-  .gallery-card-md {
-    grid-column: auto;
-    min-height: 265px;
-  }
-
-  .gallery-card:nth-child(2),
-  .gallery-card:nth-child(4),
-  .gallery-card:nth-child(6),
-  .instagram-card:nth-child(2) {
-    transform: none;
-  }
-
-  .cta-band-inner {
+  .cta-band-inner,
+  .instagram-follow-card {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -554,7 +513,8 @@ a {
   }
 
   .cta-band-inner,
-  .contact-form {
+  .contact-form,
+  .instagram-follow-card {
     padding: 1.25rem;
   }
 
