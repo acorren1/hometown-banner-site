@@ -488,11 +488,6 @@ a {
   font-size: 1.15rem;
 }
 
-.deposit-placeholder {
-  font-weight: 600;
-  color: var(--text);
-}
-
 .site-footer {
   margin-top: 2rem;
   padding: 3rem 0 1.25rem;
@@ -552,6 +547,39 @@ a {
 
 .image-hover-wrap:hover .image-hover {
   transform: scale(1.04);
+}
+
+.thanks-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 0;
+}
+
+.thanks-wrap {
+  text-align: center;
+  max-width: 640px;
+}
+
+.thanks-logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+}
+
+.thanks-wrap h1 {
+  margin: 0 0 1rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1;
+  color: var(--text);
+}
+
+.thanks-wrap p {
+  color: var(--muted);
+  margin-bottom: 1.5rem;
 }
 
 @media (max-width: 980px) {
@@ -680,40 +708,4 @@ a {
   .footer-grid {
     gap: 1.5rem;
   }
-}
-
-/* =========================
-   THANK YOU PAGE
-========================= */
-.thanks-page {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3rem 0;
-}
-
-.thanks-wrap {
-  text-align: center;
-  max-width: 640px;
-}
-
-.thanks-logo {
-  width: 90px;
-  height: 90px;
-  border-radius: 50%;
-  margin: 0 auto 1.5rem;
-}
-
-.thanks-wrap h1 {
-  margin: 0 0 1rem;
-  font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1;
-  color: var(--text);
-}
-
-.thanks-wrap p {
-  color: var(--muted);
-  margin-bottom: 1.5rem;
 }
