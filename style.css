@@ -31,6 +31,7 @@ body {
 img {
   max-width: 100%;
   display: block;
+  border-radius: 18px;
 }
 
 a {
@@ -47,7 +48,7 @@ a {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(251, 248, 244, 0.9);
+  background: rgba(251, 248, 244, 0.94);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(230, 221, 211, 0.7);
 }
@@ -100,8 +101,8 @@ a {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
-  gap: 3rem;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 4rem;
   align-items: center;
 }
 
@@ -124,14 +125,18 @@ a {
   margin: 0;
   font-family: "Cormorant Garamond", serif;
   font-weight: 700;
-  line-height: 0.97;
+  line-height: 1.04;
   letter-spacing: -0.02em;
   color: var(--text);
 }
 
 .hero h1 {
-  font-size: clamp(2.7rem, 5vw, 4.75rem);
-  max-width: 9.5ch;
+  font-size: clamp(2.8rem, 4.2vw, 4.6rem);
+  max-width: 11ch;
+}
+
+.hero-copy {
+  max-width: 560px;
 }
 
 .hero-text,
@@ -140,9 +145,11 @@ a {
 .contact-copy p,
 .cta-band p,
 .instagram-copy p,
-.footer-note {
+.footer-note,
+.pricing-note,
+.deposit-note p {
   color: var(--muted);
-  font-size: 1.02rem;
+  font-size: 1rem;
 }
 
 .hero-text {
@@ -198,7 +205,8 @@ a {
 .gallery-card,
 .sports-card,
 .contact-form,
-.instagram-follow-card {
+.instagram-follow-card,
+.pricing-card {
   background: var(--panel);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -216,7 +224,7 @@ a {
 }
 
 .section {
-  padding: 4.5rem 0;
+  padding: 5rem 0;
 }
 
 .section-heading {
@@ -233,11 +241,14 @@ a {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.15rem;
+  gap: 1.25rem;
 }
 
 .gallery-card {
-  min-height: 320px;
+  min-height: 280px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
 }
 
 .gallery-card img,
@@ -254,11 +265,67 @@ a {
 .sports-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1.15rem;
+  gap: 1.75rem;
 }
 
 .sports-card {
-  min-height: 360px;
+  min-height: 380px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.pricing-section {
+  background: linear-gradient(180deg, #fbf8f4 0%, #f6f1ea 100%);
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.pricing-card {
+  padding: 1.5rem;
+}
+
+.pricing-card h3 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  font-family: "Cormorant Garamond", serif;
+}
+
+.pricing-list,
+.pricing-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pricing-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.pricing-list li:last-child {
+  border-bottom: 0;
+}
+
+.pricing-list span,
+.pricing-bullets li,
+.pricing-note {
+  color: var(--muted);
+}
+
+.pricing-list strong {
+  color: var(--text);
+}
+
+.pricing-bullets li + li {
+  margin-top: 0.7rem;
 }
 
 .cta-band {
@@ -269,7 +336,7 @@ a {
   background: linear-gradient(135deg, #e6f4fa 0%, #f8f3ec 100%);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 2.5rem;
+  padding: 2.75rem 3rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -347,12 +414,18 @@ a {
 }
 
 .contact-grid {
-  grid-template-columns: 0.95fr 1.05fr;
+  grid-template-columns: 0.9fr 1.1fr;
   align-items: start;
 }
 
 .contact-form {
   padding: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
 }
 
 .contact-form label {
@@ -363,7 +436,8 @@ a {
 }
 
 .contact-form input,
-.contact-form textarea {
+.contact-form textarea,
+.contact-form select {
   width: 100%;
   margin-top: 0.45rem;
   padding: 0.95rem 1rem;
@@ -375,7 +449,8 @@ a {
 }
 
 .contact-form input:focus,
-.contact-form textarea:focus {
+.contact-form textarea:focus,
+.contact-form select:focus {
   outline: none;
   border-color: var(--blue-deep);
   box-shadow: 0 0 0 4px rgba(127, 185, 207, 0.15);
@@ -398,6 +473,24 @@ a {
   text-decoration: underline;
   text-decoration-color: rgba(36, 48, 58, 0.2);
   text-underline-offset: 3px;
+}
+
+.deposit-note {
+  margin-top: 2rem;
+  padding: 1.25rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.deposit-note h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+.deposit-placeholder {
+  font-weight: 600;
+  color: var(--text);
 }
 
 .site-footer {
@@ -454,20 +547,22 @@ a {
 }
 
 .image-hover {
-  transition: transform 0.45s ease;
+  transition: transform 0.4s ease;
 }
 
 .image-hover-wrap:hover .image-hover {
-  transform: scale(1.045);
+  transform: scale(1.04);
 }
 
 @media (max-width: 980px) {
   .hero-grid,
+  .gallery-grid,
+  .sports-grid,
+  .pricing-grid,
   .about-grid,
   .contact-grid,
   .footer-grid,
-  .sports-grid,
-  .gallery-grid {
+  .form-grid {
     grid-template-columns: 1fr;
   }
 
@@ -477,16 +572,16 @@ a {
     align-items: flex-start;
   }
 
-  .hero h1 {
-    max-width: 100%;
+  .hero-image-card {
+    transform: none;
   }
 
-  .hero-image-card {
-    transform: rotate(0deg);
+  .hero-copy {
+    max-width: 100%;
   }
 }
 
-@media (max-width: 760px) {
+@media (max-width: 768px) {
   .nav-wrap {
     flex-direction: column;
     align-items: flex-start;
@@ -499,400 +594,10 @@ a {
   }
 
   .hero {
-    padding-top: 3.5rem;
-  }
-
-  .hero-image {
-    aspect-ratio: 4 / 4;
-  }
-
-  .section,
-  .site-footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .cta-band-inner,
-  .contact-form,
-  .instagram-follow-card {
-    padding: 1.25rem;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-  }
-}
-
-/* =========================
-   FINAL POLISH OVERRIDES
-========================= */
-
-.hero h1 {
-  font-size: clamp(2.5rem, 4.5vw, 4.2rem);
-  max-width: 8.5ch;
-  line-height: 1.05;
-}
-
-.section {
-  padding: 5.5rem 0;
-}
-
-.gallery-grid {
-  gap: 1.5rem;
-}
-
-.gallery-card {
-  min-height: 300px;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
-.sports-card {
-  min-height: 380px;
-  border-radius: 20px;
-}
-
-.instagram-follow-card {
-  padding: 2.75rem;
-}
-
-.cta-band-inner {
-  padding: 3rem;
-}
-
-.image-hover {
-  transition: transform 0.4s ease;
-}
-
-.image-hover-wrap:hover .image-hover {
-  transform: scale(1.04);
-}
-
-/* =========================
-   FINAL VISUAL POLISH
-========================= */
-
-/* HERO TIGHTENING */
-.hero h1 {
-  font-size: clamp(2.4rem, 4.2vw, 4rem);
-  line-height: 1.02;
-  max-width: 7.5ch;
-}
-
-.hero p {
-  max-width: 480px;
-  margin-top: 1rem;
-}
-
-/* SECTION SPACING CONSISTENCY */
-.section {
-  padding: 5rem 0;
-}
-
-/* =========================
-   FEATURED GRID UPGRADE
-========================= */
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.6rem;
-}
-
-/* Make layout feel more editorial */
-.gallery-card:nth-child(1) {
-  grid-column: span 1;
-}
-
-.gallery-card:nth-child(2) {
-  grid-column: span 1;
-}
-
-.gallery-card:nth-child(3) {
-  grid-column: span 1;
-}
-
-/* Make ONE card slightly bigger for visual interest */
-.gallery-card:nth-child(6) {
-  grid-column: span 2;
-}
-
-/* Image styling */
-.gallery-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* Slight randomness in height */
-.gallery-card {
-  min-height: 260px;
-}
-
-.gallery-card:nth-child(4),
-.gallery-card:nth-child(5) {
-  min-height: 300px;
-}
-
-/* =========================
-   HOVER EFFECT (SUBTLE)
-========================= */
-
-.gallery-card {
-  overflow: hidden;
-}
-
-.gallery-card img {
-  transition: transform 0.45s ease;
-}
-
-.gallery-card:hover img {
-  transform: scale(1.045);
-}
-
-/* =========================
-   SPORTS GRID POLISH
-========================= */
-
-.sports-grid {
-  gap: 1.75rem;
-}
-
-.sports-card img {
-  transition: transform 0.45s ease;
-}
-
-.sports-card:hover img {
-  transform: scale(1.04);
-}
-
-/* =========================
-   INSTAGRAM SECTION IMPROVEMENT
-========================= */
-
-.instagram-follow-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
-  padding: 3rem;
-}
-
-/* Add subtle background texture feel */
-.instagram-follow-card {
-  background: linear-gradient(
-    135deg,
-    #f6f3ef 0%,
-    #f2eee9 100%
-  );
-}
-
-/* =========================
-   CTA BAND CLEANUP
-========================= */
-
-.cta-band-inner {
-  padding: 2.75rem 3rem;
-}
-
-/* =========================
-   GLOBAL POLISH
-========================= */
-
-img {
-  border-radius: 18px;
-}
-
-h2 {
-  letter-spacing: -0.02em;
-}
-
-/* =========================
-   FIX HERO + FEATURED
-========================= */
-
-/* HERO: wider, less tall */
-.hero-grid {
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 4rem;
-  align-items: center;
-}
-
-.hero h1 {
-  font-size: clamp(2.8rem, 4.2vw, 4.6rem);
-  line-height: 1.04;
-  max-width: 11ch;
-}
-
-.hero-text {
-  max-width: 34rem;
-}
-
-.hero-copy {
-  max-width: 560px;
-}
-
-/* FEATURED: reset weird editorial overrides */
-.gallery-grid {
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-}
-
-.gallery-card,
-.gallery-card:nth-child(4),
-.gallery-card:nth-child(5),
-.gallery-card:nth-child(6) {
-  min-height: 280px;
-}
-
-.gallery-card:nth-child(6) {
-  grid-column: auto;
-}
-
-.gallery-card:nth-child(1),
-.gallery-card:nth-child(2),
-.gallery-card:nth-child(3),
-.gallery-card:nth-child(4),
-.gallery-card:nth-child(5),
-.gallery-card:nth-child(6) {
-  grid-column: auto;
-}
-
-.gallery-card {
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.05);
-}
-
-.gallery-card img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-.gallery-card:hover img {
-  transform: scale(1.03);
-}
-
-/* Slightly shorter Ellie card feel without breaking layout */
-.gallery-card:last-child img {
-  object-position: center;
-}
-
-/* Mobile safety */
-@media (max-width: 980px) {
-  .hero-grid,
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .hero-copy {
-    max-width: 100%;
-  }
-
-  .gallery-card:nth-child(6) {
-    grid-column: auto;
-  }
-}
-
-/* =========================
-   MOBILE REFINEMENT (FINAL)
-========================= */
-
-@media (max-width: 768px) {
-
-  /* HERO — reduce vertical bulk */
-  .hero {
     padding-top: 2rem;
     padding-bottom: 2rem;
   }
 
-  .hero h1 {
-    font-size: 2.2rem;
-    line-height: 1.08;
-    margin-bottom: 0.75rem;
-  }
-
-  .hero p {
-    font-size: 0.95rem;
-    margin-bottom: 1rem;
-  }
-
-  .hero-buttons {
-    margin-top: 1rem;
-  }
-
-  /* FEATURED — make it feel less endless */
-  .gallery-grid {
-    gap: 0.85rem;
-  }
-
-  .gallery-card {
-    min-height: 200px;
-  }
-
-  /* Add subtle breathing space between rows */
-  .gallery-card:not(:last-child) {
-    margin-bottom: 0.25rem;
-  }
-
-  /* SECTION TITLES — tighten */
-  h2 {
-    font-size: 1.6rem;
-    line-height: 1.2;
-  }
-
-  /* SPORTS — give images breathing room */
-  .sports-grid {
-    gap: 1.25rem;
-  }
-
-  /* CTA BAND — cleaner stacking */
-  .cta-band-inner {
-    padding: 1.75rem;
-  }
-
-  /* ABOUT — balance spacing */
-  .about-grid {
-    gap: 1.5rem;
-  }
-
-  /* INSTAGRAM SECTION */
-  .instagram-follow-card {
-    padding: 1.75rem;
-    text-align: center;
-  }
-
-  .instagram-follow-card .btn {
-    margin-top: 0.75rem;
-  }
-
-  /* FORM — more breathing room */
-  .form-grid {
-    gap: 1rem;
-  }
-
-  input, textarea {
-    padding: 0.85rem;
-  }
-
-  /* FOOTER — less cramped */
-  .footer-grid {
-    gap: 1.5rem;
-  }
-
-}
-
-/* =========================
-   MOBILE HERO REORDER
-========================= */
-@media (max-width: 768px) {
   .hero-grid {
     display: flex;
     flex-direction: column;
@@ -907,7 +612,6 @@ h2 {
   .hero-image-card {
     order: 2;
     width: 100%;
-    transform: none;
   }
 
   .hero-actions {
@@ -919,9 +623,9 @@ h2 {
   }
 
   .hero h1 {
-    max-width: 100%;
     font-size: 2.65rem;
     line-height: 1.05;
+    max-width: 100%;
   }
 
   .hero-text {
@@ -935,8 +639,45 @@ h2 {
     object-fit: cover;
   }
 
-  .hero .btn {
+  .hero .btn,
+  .btn {
     width: 100%;
     justify-content: center;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .gallery-grid,
+  .sports-grid {
+    gap: 1rem;
+  }
+
+  .gallery-card {
+    min-height: 220px;
+  }
+
+  .sports-card {
+    min-height: 260px;
+  }
+
+  .cta-band-inner,
+  .instagram-follow-card,
+  .contact-form {
+    padding: 1.25rem;
+  }
+
+  .instagram-follow-card {
+    text-align: center;
+  }
+
+  .instagram-actions,
+  .instagram-copy {
+    width: 100%;
+  }
+
+  .footer-grid {
+    gap: 1.5rem;
   }
 }
