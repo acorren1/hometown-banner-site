@@ -235,10 +235,10 @@
         <div class="contact-copy">
           <p class="section-kicker">LET'S CREATE SOMETHING</p>
           <h2>Start your custom order</h2>
-          <p>
-            Fill out the details below and Vicki will be in touch. Banner orders will be directed
-            to checkout after submission. Sports balls and other variable-cost items will be reviewed and quoted.
-          </p>
+         <p>
+  Fill out the details below and Vicki will be in touch to confirm your order,
+  timeline, and payment instructions.
+</p>
 
           <div class="contact-details">
             <p><strong>Email:</strong> <a href="mailto:vecorrente@gmail.com">vecorrente@gmail.com</a></p>
@@ -248,24 +248,28 @@
           </div>
 
           <div class="deposit-note">
-            <h3>How payment works</h3>
-            <p>
-              <strong>Banners:</strong> submit your order details, then checkout based on your selected size and delivery method.
-            </p>
-            <p>
-              <strong>Sports balls / custom items:</strong> submit your request and Vicki will follow up with pricing.
-            </p>
-          </div>
+  <h3>How payment works</h3>
+  <p>
+    Submit your order request and Vicki will review the details.
+  </p>
+  <p>
+    Once your order is confirmed, payment instructions will be sent by email.
+  </p>
+  <p>
+    Local pickup is always available, and shipping is available for $20 on banner orders.
+  </p>
+</div>
         </div>
 
         <form
-          class="contact-form"
-          id="custom-order-form"
-          name="custom-order"
-          method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
-        >
+  class="contact-form"
+  id="custom-order-form"
+  name="custom-order"
+  method="POST"
+  action="/thanks.html"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+>
           <input type="hidden" name="form-name" value="custom-order" />
           <p class="hidden-field">
             <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
@@ -412,88 +416,5 @@
       <p>© 2026 Hometown Banner Co. All rights reserved.</p>
     </div>
   </footer>
-
-  <script>
-    const STRIPE_LINKS = {
-      pickup: {
-        "4x3 ft": "https://buy.stripe.com/test_5kQ6oAe1Gebm6OwgRBgbm05",
-        "5x3 ft": "https://buy.stripe.com/test_bJe4gs6zeebm5Ks6cXgbm03",
-        "6x3 ft": "https://buy.stripe.com/test_dRm6oAf5Kd7idcUatdgbm01"
-      },
-      shipping: {
-        "4x3 ft": "https://buy.stripe.com/test_28E28k9Lqgjugp6atdgbm04",
-        "5x3 ft": "https://buy.stripe.com/test_fZu9AM2iYgju4Go8l5gbm02",
-        "6x3 ft": "https://buy.stripe.com/test_7sY28k6ze4AM2ygdFpgbm00"
-      }
-    };
-
-    const form = document.getElementById("custom-order-form");
-
-    function encodeFormData(data) {
-      return new URLSearchParams(data).toString();
-    }
-
-    function getBannerRedirectUrl(size, deliveryMethod) {
-      if (deliveryMethod === "Local pickup") {
-        return STRIPE_LINKS.pickup[size] || "";
-      }
-
-      if (deliveryMethod === "Shipping") {
-        return STRIPE_LINKS.shipping[size] || "";
-      }
-
-      return "";
-    }
-
-    form.addEventListener("submit", async function (event) {
-      event.preventDefault();
-
-      const formData = new FormData(form);
-      const productType = formData.get("product_type");
-      const bannerSize = formData.get("banner_size");
-      const deliveryMethod = formData.get("delivery_method");
-
-      if (productType === "Banner") {
-        if (!bannerSize || bannerSize === "Not sure yet" || bannerSize === "Not a banner") {
-          alert("Please select a banner size before continuing to checkout.");
-          return;
-        }
-
-        if (!deliveryMethod || deliveryMethod === "Not sure yet") {
-          alert("Please select local pickup or shipping before continuing to checkout.");
-          return;
-        }
-      }
-
-      try {
-        const response = await fetch("/", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          body: encodeFormData(formData)
-        });
-
-        if (!response.ok) {
-          throw new Error("Form submission failed.");
-        }
-
-        if (productType === "Banner") {
-          const redirectUrl = getBannerRedirectUrl(bannerSize, deliveryMethod);
-
-          if (!redirectUrl || redirectUrl.includes("PASTE_")) {
-            alert("Your Stripe payment link for this banner option has not been added yet.");
-            return;
-          }
-
-          window.location.href = redirectUrl;
-        } else {
-          window.location.href = "/thanks.html";
-        }
-      } catch (error) {
-        alert("Something went wrong submitting the form. Please try again.");
-      }
-    });
-  </script>
 </body>
 </html>
