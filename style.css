@@ -709,3 +709,7 @@ a {
     gap: 1.5rem;
   }
 }
+
+.service-area-section {
+  background: var(--bg-soft);
+}
