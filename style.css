@@ -710,6 +710,13 @@ a {
   }
 }
 
+/* Service Area Section */
 .service-area-section {
-  background: var(--bg-soft);
+  background: var(--accent-soft);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.service-area-section .section-heading {
+  max-width: 820px;
 }
