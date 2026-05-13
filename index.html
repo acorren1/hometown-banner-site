@@ -155,28 +155,50 @@
       </p>
     </div>
 
-    <div class="sports-grid sports-stack-grid">
-      <article class="sports-card sports-stack-card">
-        <div class="stacked-images">
-          <img src="images/ball-happy-birthday.jpg" alt="Back side of custom painted birthday basketball" class="stack-img stack-img-back" />
-          <img src="images/ball-siah.jpg" alt="Front side of custom painted basketball with personalized name design" class="stack-img stack-img-front" />
+   <section class="section alt-section" id="sports">
+  <div class="container">
+    <div class="section-heading">
+      <p class="section-kicker">PAINTED SPORTS BALLS</p>
+      <h2>Custom pieces beyond banners, too</h2>
+      <p>
+        Personalized basketballs, baseballs, and footballs make memorable keepsakes for
+        birthdays, coaches, senior nights, team gifts, banquets, and sports celebrations.
+      </p>
+    </div>
+
+    <div class="sports-grid sports-slider-grid">
+      <article class="sports-card sports-slider-card">
+        <div class="sports-photo-frame">
+          <img src="images/ball-siah.jpg" alt="Custom painted basketball with personalized name design" class="sports-slide active" />
+          <img src="images/ball-happy-birthday.jpg" alt="Custom painted happy birthday basketball gift" class="sports-slide" />
         </div>
         <h3>Basketballs</h3>
+        <div class="sports-dots">
+          <button type="button" class="sports-dot active" aria-label="Show basketball photo 1"></button>
+          <button type="button" class="sports-dot" aria-label="Show basketball photo 2"></button>
+        </div>
       </article>
 
-      <article class="sports-card sports-stack-card">
-        <div class="stacked-images">
-          <img src="images/baseball-back.jpg" alt="Custom painted baseball with personalized design" class="stack-img stack-img-back" />
-          <img src="images/baseball-front.jpg" alt="Custom painted baseball gift for sports celebration" class="stack-img stack-img-front" />
+      <article class="sports-card sports-slider-card">
+        <div class="sports-photo-frame">
+          <img src="images/baseball-front.jpg" alt="Custom painted baseball gift for sports celebration" class="sports-slide active" />
+          <img src="images/baseball-back.jpg" alt="Custom painted baseball with personalized design" class="sports-slide" />
         </div>
         <h3>Baseballs</h3>
+        <div class="sports-dots">
+          <button type="button" class="sports-dot active" aria-label="Show baseball photo 1"></button>
+          <button type="button" class="sports-dot" aria-label="Show baseball photo 2"></button>
+        </div>
       </article>
 
-      <article class="sports-card sports-stack-card">
-        <div class="single-sports-image">
-          <img src="images/football-coach.jpg" alt="Custom painted footballs for coaches and team gifts" />
+      <article class="sports-card sports-slider-card">
+        <div class="sports-photo-frame football-frame">
+          <img src="images/football-coach.jpg" alt="Custom painted footballs for coaches and team gifts" class="sports-slide active" />
         </div>
         <h3>Footballs</h3>
+        <div class="sports-dots">
+          <button type="button" class="sports-dot active" aria-label="Show football photo 1"></button>
+        </div>
       </article>
     </div>
   </div>
@@ -492,5 +514,25 @@
       <p>© 2026 Hometown Banner Co. All rights reserved.</p>
     </div>
   </footer>
+
+    <script>
+  document.querySelectorAll(".sports-slider-card").forEach((card) => {
+    const slides = card.querySelectorAll(".sports-slide");
+    const dots = card.querySelectorAll(".sports-dot");
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener("click", () => {
+        slides.forEach((slide) => slide.classList.remove("active"));
+        dots.forEach((button) => button.classList.remove("active"));
+
+        if (slides[index]) {
+          slides[index].classList.add("active");
+          dot.classList.add("active");
+        }
+      });
+    });
+  });
+</script>
+    
 </body>
 </html>
